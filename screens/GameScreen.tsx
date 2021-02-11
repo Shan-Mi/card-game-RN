@@ -41,24 +41,23 @@ export default function GameScreen() {
 
   const getOneCard = () => {
     const res = cards && cards.pop();
-    console.log(res);
-    console.log(cards);
+    // console.log(res);
+    // console.log(cards);
+    // console.log("how many cards in pocket", cards?.length);
     setCards(cards);
     setCurrCard(res);
-    console.log("how many cards in pocket", cards?.length);
   };
+
+  const newGame = () => {};
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Game Page</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
+
       <Button onPress={getOneCard} title="Draw one card" />
+      <Button onPress={newGame} title="Begin a new round" />
       {currCard && (
-        <View>
+        <View style={styles.card}>
           <Image source={{ uri: currCard?.image }} style={styles.image} />
           <Text>{currCard?.value}</Text>
           <Text>Your guess:</Text>
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-around",
   },
   title: {
     fontSize: 20,
@@ -88,6 +87,9 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: "80%",
+  },
+  card: {
+    flex: 1,
   },
   image: {
     width: 300,
