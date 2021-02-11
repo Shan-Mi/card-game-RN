@@ -1,11 +1,11 @@
-interface Deck {
+export interface Deck {
   success: boolean;
   deck_id: string;
   shuffled: boolean;
   remaining: number;
 }
 
-interface Card {
+export interface Card {
   code: string;
   image: string;
   images: {
@@ -16,8 +16,14 @@ interface Card {
   suit: string;
 }
 
-interface Guess {
-  val: string;
+export interface Guess {
+  val?: string;
   score: number;
-  myGuess: string;
+  myGuess?: string;
 }
+
+export type GuessAction =
+  | { type: ">"; score: number }
+  | { type: "="; score: number }
+  | { type: "<"; score: number }
+  | { type: "empty" };
