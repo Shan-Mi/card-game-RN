@@ -26,4 +26,4 @@ export type GuessAction =
   | { type: ">"; score: number }
   | { type: "="; score: number }
   | { type: "<"; score: number }
-  | { type: "empty" };
+  | { type: "empty"; score?: number };
